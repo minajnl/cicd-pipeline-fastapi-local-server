@@ -27,4 +27,4 @@ jobs:
 
       - name: test just copy the directory to server
         run: |
-            scp -i ~/.ssh/id_rsa -r . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/test-app
+            scp -i ~/.ssh/id_rsa -r ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/test-app
