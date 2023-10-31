@@ -3,4 +3,4 @@ services:
   fastapi-app:
     build: .
     ports:
-      - "9090:9090"
+      - "5050:5050"

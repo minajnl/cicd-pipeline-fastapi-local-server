@@ -27,4 +27,6 @@ jobs:
 
       - name: test just copy the directory to server
         run: |
-            scp -i ~/.ssh/id_rsa -r $(pwd) ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/test-app
+            rsync -avz -e "ssh -i ~/.ssh/id_rsa" $(pwd) ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/test-app
+
+
