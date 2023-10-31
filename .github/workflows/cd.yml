@@ -28,6 +28,6 @@ jobs:
       - name: deploy to local server
         run: |
             rsync -avz -e "ssh -i ~/.ssh/id_rsa" $(pwd) ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/test-app
-            ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd ~/test-app/cicd-pipeline-fastapi-local-server && docker-compose build'
+            ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd ~/test-app/cicd-pipeline-fastapi-local-server && docker-compose build && docker-compose up'
 
 
