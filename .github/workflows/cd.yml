@@ -21,6 +21,10 @@ jobs:
             ssh-keyscan -H ${{ secrets.SSH_HOSt }} >> ~/.ssh/known_hosts
             chmod 644 ~/.ssh/known_hosts
 
+      - name: show files
+        run: |
+            ls -a
+
       - name: test just copy the directory to server
         run: |
             scp -i ~/.ssh/id_rsa -r . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/test-app
