@@ -25,8 +25,9 @@ jobs:
         run: |
             ls -a
 
-      - name: test just copy the directory to server
+      - name: deploy to local server
         run: |
             rsync -avz -e "ssh -i ~/.ssh/id_rsa" $(pwd) ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/test-app
+            ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd ~/test-app/${{github.repository}} && docker-compose build'
 
 
